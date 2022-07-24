@@ -21,6 +21,7 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _bioController = TextEditingController();
@@ -44,6 +45,7 @@ class _SignupScreenState extends State<SignupScreen> {
     // signup user using our authmethodds
     String res = await AuthMethods().signUpUser(
         email: _emailController.text,
+        name: _nameController.text,
         password: _passwordController.text,
         username: _usernameController.text,
         bio: _bioController.text,
@@ -94,10 +96,9 @@ class _SignupScreenState extends State<SignupScreen> {
                 child: Container(),
                 flex: 2,
               ),
-              SvgPicture.asset(
-                'assets/ic_instagram.svg',
-                color: primaryColor,
-                height: 64,
+              Image(
+                image: AssetImage('assets/ic_launcher.png'),
+                height: 192,
               ),
               const SizedBox(
                 height: 64,
@@ -125,6 +126,14 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   )
                 ],
+              ),
+              const SizedBox(
+                height: 24,
+              ),
+              TextFieldInput(
+                hintText: 'Enter your name',
+                textInputType: TextInputType.text,
+                textEditingController: _nameController,
               ),
               const SizedBox(
                 height: 24,

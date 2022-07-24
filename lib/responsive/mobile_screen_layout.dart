@@ -11,7 +11,7 @@ class MobileScreenLayout extends StatefulWidget {
 }
 
 class _MobileScreenLayoutState extends State<MobileScreenLayout> {
-  int _page = 0;
+  int _page = 2;
   late PageController pageController; // for tabs animation
 
   @override
@@ -49,13 +49,12 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout> {
         backgroundColor: mobileBackgroundColor,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              color: (_page == 0) ? primaryColor : secondaryColor,
-            ),
-            label: '',
-            backgroundColor: primaryColor,
-          ),
+              icon: Icon(
+                Icons.add_circle,
+                color: (_page == 0) ? primaryColor : secondaryColor,
+              ),
+              label: '',
+              backgroundColor: primaryColor),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.search,
@@ -64,12 +63,13 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout> {
               label: '',
               backgroundColor: primaryColor),
           BottomNavigationBarItem(
-              icon: Icon(
-                Icons.add_circle,
-                color: (_page == 2) ? primaryColor : secondaryColor,
-              ),
-              label: '',
-              backgroundColor: primaryColor),
+            icon: Icon(
+              Icons.home,
+              color: (_page == 2) ? primaryColor : secondaryColor,
+            ),
+            label: '',
+            backgroundColor: primaryColor,
+          ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.favorite,

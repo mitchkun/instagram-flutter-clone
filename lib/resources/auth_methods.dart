@@ -22,6 +22,7 @@ class AuthMethods {
 
   Future<String> signUpUser({
     required String email,
+    required String name,
     required String password,
     required String username,
     required String bio,
@@ -29,7 +30,8 @@ class AuthMethods {
   }) async {
     String res = "Some error Occurred";
     try {
-      if (email.isNotEmpty ||
+      if (name.isNotEmpty ||
+          email.isNotEmpty ||
           password.isNotEmpty ||
           username.isNotEmpty ||
           bio.isNotEmpty ||
@@ -40,11 +42,12 @@ class AuthMethods {
           password: password,
         );
 
-        String photoUrl =
-            await StorageMethods().uploadImageToStorage('profilePics', file, false);
+        String photoUrl = await StorageMethods()
+            .uploadImageToStorage('profilePics', file, false);
 
         model.User _user = model.User(
           username: username,
+          name: name,
           uid: cred.user!.uid,
           photoUrl: photoUrl,
           email: email,
